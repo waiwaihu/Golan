@@ -1,0 +1,27 @@
+//使用proto3语法
+syntax = "proto3";
+
+//最后生成的go文件是处在哪个目录哪个包中，.代表当前目录生成，service代表了生成的go文件的包名是service
+option go_package = ".;service";
+
+//定义一个服务，在这个服务里需要方法，这个方法可以接收客户端的参数，再返回服务端的响应
+service SayHello {
+  rpc SayHello(HelloRequest) returns (HelloResponse) {}
+}
+
+//message关键字，相当于golang的结构体
+//这里比较特别的是变量后面的"赋值"，注意，这里并不是赋值，而是在定义这个变量在message中的位置
+message HelloRequest {
+  string requestName = 1;
+  //int64 age = 2;
+}
+
+message HelloResponse{
+  string responseMsg = 1;
+}
+
+
+//在"gRPC教程/教程.proto"目录下执行命令
+//protoc --go_out=. 教程.proto
+//protoc --go-grpc_out=. 教程.proto
+//protoc --go_out=plugins=grpc:./ *.proto

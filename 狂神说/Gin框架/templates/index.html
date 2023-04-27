@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>狂神说 Gin 框架,一个小时快速上手</title>
+        <!-- 加载css样式 -->
+        <link rel="stylesheet" href="/static/css/style.css">
+        <script src="/static/js/common.js"></script>
+    </head>
+    <body>
+        <h1>菜Go学golang开发 GoWeb</h1>
+        获取后端的数据为：
+        {{.msg}}
+
+        <p>这里创建一个表单，给后端传递参数</p>
+        <from action="/user/add" method="post">
+            <p>username: <input type="text" name="username" placeholder="用户名"></p>
+            <p>password: <input type="password" name="password" placeholder="密码"></p>
+            <button type="submit">提交</button>
+        </from>
+    </body>
+</html>
